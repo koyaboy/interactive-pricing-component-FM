@@ -6,7 +6,6 @@ export default {
   ],
   theme: {
     colors: {
-      'white': 'hsl (0, 0%, 100%)',
       "soft-cyan": "hsl(174, 77%, 80%)",
       "strong-cyan": "hsl(174, 86%, 45%)",
       "light-grayish-red": "hsl(14, 92%, 95%)",
@@ -17,6 +16,21 @@ export default {
       "light-grayish-blue-2": "hsl(223, 50%, 87%)",
       "grayish-blue": "hsl(225, 20%, 60%)",
       "dark-desaturated-blue": "hsl(227, 35%, 25%)",
+      "white": "hsl(0, 0%, 100%)",
+      "yellow": "yellow",
+      "red": "red"
+    },
+    borderRadius: {
+      'none': '0',
+      'sm': '0.125rem',
+      DEFAULT: '0.25rem',
+      'md': '0.375rem',
+      'lg': '0.5rem',
+      'xl': '0.75rem',
+      '2xl': '1rem',
+      '3xl': '1.5rem',
+      'full': '9999px',
+      'custom': '160px',
     },
     extend: {},
   },
