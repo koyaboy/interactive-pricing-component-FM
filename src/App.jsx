@@ -1,10 +1,47 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import patternCircles from "./assets/images/pattern-circles.svg"
 import iconCheck from "./assets/images/icon-check.svg"
 import iconSlider from "./assets/images/icon-slider.svg"
 
 function App() {
   const [sliderValue, setSliderValue] = useState(50)
+  const [pageview, setPageView] = useState("100K")
+  const [amount, setAmount] = useState(16)
+  const [yearlyBill, setYearlyBill] = useState(false)
+
+
+  useEffect(() => {
+    switch (sliderValue) {
+      case "0":
+        setPageView("10K");
+        setAmount(8);
+        break;
+
+      case "25":
+        setPageView("50K");
+        setAmount(12);
+        break;
+
+      case "50":
+        setPageView("100K");
+        setAmount(16);
+        break;
+
+      case "75":
+        setPageView("500K");
+        setAmount(24);
+        break;
+
+      case "100":
+        setPageView("1M");
+        setAmount(36);
+        break;
+
+      default:
+        break;
+    }
+  }, [sliderValue])
+
 
   const calculateSliderGradient = () => {
     const percentage = (sliderValue / 100) * 100;
@@ -12,6 +49,7 @@ function App() {
   };
 
   const sliderGradient = calculateSliderGradient();
+
 
   return (
     <>
@@ -26,7 +64,7 @@ function App() {
 
         <div className="flex justify-center">
           <div className="relative -top-44 bg-white flex flex-col items-center w-11/12 py-8 drop-shadow-2xl">
-            <div className="text-grayish-blue tracking-widest mb-12">100K PAGEVIEWS</div>
+            <div className="text-grayish-blue tracking-widest mb-12">{pageview} PAGEVIEWS</div>
 
             <div className=" relative w-11/12 mb-12 flex justify-center ">
               <input
@@ -61,14 +99,14 @@ function App() {
 
 
             <div className="flex items-center mb-8">
-              <span className="text-3xl mr-2 font-bold text-dark-desaturated-blue">$16.00</span>
-              <span className="text-sm text-grayish-blue">/ month</span>
+              <span className="text-3xl mr-2 font-bold text-dark-desaturated-blue">{!yearlyBill ? `$${amount}.00` : `$${amount * 12 - (0.25 * amount * 12)}.00`}</span>
+              <span className="text-sm text-grayish-blue">{!yearlyBill ? "/ month" : "/ year"}</span>
             </div>
 
             <div className=" relative flex justify-between items-center w-full mb-10 pl-12 pr-4">
               <div className="text-sm text-grayish-blue">Monthly Billing</div>
               <label className="switch">
-                <input type="checkbox" /><span className="slider round"></span>
+                <input type="checkbox" onChange={() => setYearlyBill((prevBill) => !prevBill)} /><span className="slider round"></span>
               </label>
               <div className="text-grayish-blue text-sm">Yearly Billing</div>
               <div className="bg-light-grayish-red text-light-red rounded-full px-1.5 py-0.5 text-sm">-25%</div>
