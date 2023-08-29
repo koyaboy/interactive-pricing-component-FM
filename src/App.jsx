@@ -55,14 +55,14 @@ function App() {
     <>
       <div className="bg-very-pale-blue min-h-screen">
 
-        <div className="header relative flex flex-col items-center py-20 h-96 mb-6 rounded-bl-custom">
+        <div className="header relative flex flex-col items-center py-28 h-96 mb-6 rounded-bl-custom">
           <img src={patternCircles} alt="pattern-circles" className="absolute top-14 w-36" />
-          <h2 className="text-dark-desaturated-blue text-2xl font-bold mb-2">Simple, traffic-based pricing</h2>
+          <h2 className="text-dark-desaturated-blue text-2xl text-center font-bold mb-2">Simple, traffic-based pricing</h2>
           <div className="text-grayish-blue mb-1 w-56 text-center md:w-full">Sign-up for our 30-day trial. No credit card required.</div>
         </div>
 
         <div className="flex justify-center">
-          <div className="relative -top-44 bg-white flex flex-col items-center w-11/12 py-12 drop-shadow-2xl">
+          <div className="relative -top-36 bg-white flex flex-col items-center w-11/12 py-8 drop-shadow-2xl md:w-7/12 lg:w-6/12">
 
             <div className="w-full px-4 md:flex md:justify-between md:flex-wrap md:px-9 md:items-center">
 
@@ -101,7 +101,7 @@ function App() {
 
 
               <div className="flex items-center justify-center mb-8 md:order-2 md:mb-0">
-                <span className="text-3xl mr-2 font-bold text-dark-desaturated-blue">{!yearlyBill ? `$${amount}.00` : `$${amount * 12 - (0.25 * amount * 12)}.00`}</span>
+                <span className="text-4xl mr-2 font-bold text-dark-desaturated-blue">{!yearlyBill ? `$${amount}.00` : `$${amount * 12 - (0.25 * amount * 12)}.00`}</span>
                 <span className="text-sm text-grayish-blue">{!yearlyBill ? "/ month" : "/ year"}</span>
               </div>
 
