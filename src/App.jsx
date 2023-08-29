@@ -58,27 +58,29 @@ function App() {
         <div className="header relative flex flex-col items-center py-20 h-96 mb-6 rounded-bl-custom">
           <img src={patternCircles} alt="pattern-circles" className="absolute top-14 w-36" />
           <h2 className="text-dark-desaturated-blue text-2xl font-bold mb-2">Simple, traffic-based pricing</h2>
-          <div className="text-grayish-blue mb-1">Sign-up for our 30-day trial. </div>
-          <div className="text-grayish-blue">No credit card required. </div>
+          <div className="text-grayish-blue mb-1 w-56 text-center md:w-full">Sign-up for our 30-day trial. No credit card required.</div>
         </div>
 
         <div className="flex justify-center">
-          <div className="relative -top-44 bg-white flex flex-col items-center w-11/12 py-8 drop-shadow-2xl">
-            <div className="text-grayish-blue tracking-widest mb-12">{pageview} PAGEVIEWS</div>
+          <div className="relative -top-44 bg-white flex flex-col items-center w-11/12 py-12 drop-shadow-2xl">
 
-            <div className=" relative w-11/12 mb-12 flex justify-center ">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                step="25"
-                value={sliderValue}
-                onChange={(e) => setSliderValue(e.target.value)}
-                className="range-slider"
-                style={{ background: sliderGradient }}
-              />
+            <div className="w-full px-4 md:flex md:justify-between md:flex-wrap md:px-9 md:items-center">
 
-              {/* <img
+              <div className="text-grayish-blue tracking-widest mb-12 text-center md:mb-0">{pageview} PAGEVIEWS</div>
+
+              <div className=" relative w-full mb-12 flex justify-center md:order-3 mt-10">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="25"
+                  value={sliderValue}
+                  onChange={(e) => setSliderValue(e.target.value)}
+                  className="range-slider"
+                  style={{ background: sliderGradient }}
+                />
+
+                {/* <img
                 src={iconSlider}
                 alt="icon-slider"
                 className="absolute -top-0.5 -translate-x-1/2"
@@ -95,15 +97,17 @@ function App() {
 
               /> */}
 
+              </div>
+
+
+              <div className="flex items-center justify-center mb-8 md:order-2 md:mb-0">
+                <span className="text-3xl mr-2 font-bold text-dark-desaturated-blue">{!yearlyBill ? `$${amount}.00` : `$${amount * 12 - (0.25 * amount * 12)}.00`}</span>
+                <span className="text-sm text-grayish-blue">{!yearlyBill ? "/ month" : "/ year"}</span>
+              </div>
+
             </div>
 
-
-            <div className="flex items-center mb-8">
-              <span className="text-3xl mr-2 font-bold text-dark-desaturated-blue">{!yearlyBill ? `$${amount}.00` : `$${amount * 12 - (0.25 * amount * 12)}.00`}</span>
-              <span className="text-sm text-grayish-blue">{!yearlyBill ? "/ month" : "/ year"}</span>
-            </div>
-
-            <div className=" relative flex justify-between items-center w-full mb-10 pl-12 pr-4">
+            <div className=" relative flex justify-center items-center w-full mb-10 pl-12 gap-2 sm:gap-6 ">
               <div className="text-sm text-grayish-blue">Monthly Billing</div>
               <label className="switch">
                 <input type="checkbox" onChange={() => setYearlyBill((prevBill) => !prevBill)} /><span className="slider round"></span>
@@ -114,18 +118,20 @@ function App() {
 
             <hr className="border border-light-grayish-blue-1 w-full" />
 
-            <div className="flex flex-col items-center mt-6">
-              <div className="flex items-center gap-4 mb-2">
-                <img src={iconCheck} alt="icon-check" />
-                <div className="text-grayish-blue text-sm">Unlimited Websites</div>
-              </div>
-              <div className="flex items-center gap-4 mb-2">
-                <img src={iconCheck} alt="icon-check" />
-                <div className="text-grayish-blue text-sm">100% data ownership</div>
-              </div>
-              <div className="flex items-center gap-4 mb-8">
-                <img src={iconCheck} alt="icon-check" />
-                <div className="text-grayish-blue text-sm">Email reports</div>
+            <div className="flex flex-col items-center mt-6 md:flex-row md:justify-between md:w-full md:px-9">
+              <div className="flex flex-col items-center md:items-start">
+                <div className="flex items-center gap-4 mb-2">
+                  <img src={iconCheck} alt="icon-check" />
+                  <div className="text-grayish-blue text-sm">Unlimited Websites</div>
+                </div>
+                <div className="flex items-center gap-4 mb-2">
+                  <img src={iconCheck} alt="icon-check" />
+                  <div className="text-grayish-blue text-sm">100% data ownership</div>
+                </div>
+                <div className="flex items-center gap-4 mb-8">
+                  <img src={iconCheck} alt="icon-check" />
+                  <div className="text-grayish-blue text-sm">Email reports</div>
+                </div>
               </div>
               <button className="text-pale-blue bg-dark-desaturated-blue px-12 py-3 rounded-full">Start my trial</button>
             </div>
