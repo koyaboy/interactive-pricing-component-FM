@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import patternCircles from "./assets/images/pattern-circles.svg"
 import iconCheck from "./assets/images/icon-check.svg"
-import iconSlider from "./assets/images/icon-slider.svg"
 
 function App() {
   const [sliderValue, setSliderValue] = useState(50)
@@ -54,7 +53,6 @@ function App() {
   return (
     <>
       <div className="bg-very-pale-blue min-h-screen">
-
         <div className="header relative flex flex-col items-center py-28 h-96 mb-6 rounded-bl-custom">
           <img src={patternCircles} alt="pattern-circles" className="absolute top-14 w-36" />
           <h2 className="text-dark-desaturated-blue text-2xl text-center font-bold mb-2">Simple, traffic-based pricing</h2>
@@ -63,7 +61,6 @@ function App() {
 
         <div className="flex justify-center">
           <div className="relative -top-36 bg-white flex flex-col items-center w-11/12 py-8 drop-shadow-2xl md:w-7/12 lg:w-6/12">
-
             <div className="w-full px-4 md:flex md:justify-between md:flex-wrap md:px-9 md:items-center">
 
               <div className="text-grayish-blue tracking-widest mb-12 text-center md:mb-0">{pageview} PAGEVIEWS</div>
@@ -79,24 +76,6 @@ function App() {
                   className="range-slider"
                   style={{ background: sliderGradient }}
                 />
-
-                {/* <img
-                src={iconSlider}
-                alt="icon-slider"
-                className="absolute -top-0.5 -translate-x-1/2"
-                style={{
-                  left: `${sliderValue}%`,
-                  transform: `translate(${sliderValue === 0 ? '50%' :
-                    sliderValue === 25 ? '0%' :
-                      sliderValue === 50 ? '-50%' :
-                        sliderValue === 75 ? '-100%' :
-                          sliderValue === 100 ? '-150%' :
-                            '0' // Default value if none of the conditions are met
-                    })`,
-                }}
-
-              /> */}
-
               </div>
 
 
